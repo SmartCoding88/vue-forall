@@ -21,9 +21,8 @@
 </head>
 <body>
     <div id="root">
-        <button :class="{'is_loading': isLoading}" @click="toggleClass">Toggle</button>
         <h1>
-            {{message.split('').reverse().join('')}}
+            {{ reversedMessage }}
         </h1>
     </div>
 
@@ -35,15 +34,18 @@
         let app = createApp({
             data(){
                 return {
-                    isLoading:  false,
-                    message: "Hello World"
+                    message: "Computed Values"
+                }
+            },
+
+            computed:{
+                reversedMessage(){
+                    return this.message.split('').reverse().join('')
                 }
             },
             
             methods:{
-                toggleClass(){
-                    this.isLoading = !this.isLoading;
-                }
+                
             }
         }).mount("#root");
 

@@ -5,10 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=div#root, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        button{
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #000;
+        }
+        .is_loading{
+            background: black;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <div id="root">
-        <button :title="title">Hover Over Me</button>
+        <button :class="{'is_loading': isLoading}" @click="toggleClass">Toggle</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -19,11 +32,13 @@
         let app = createApp({
             data(){
                 return {
-                    title: "Title added through Javascript"
+                    isLoading:  false
                 }
             },
             methods:{
-                
+                toggleClass(){
+                    this.isLoading = !this.isLoading;
+                }
             }
         }).mount("#root");
 

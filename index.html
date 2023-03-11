@@ -16,7 +16,7 @@
             <li v-for="name in names" v-text="name"></li>
         </ol>
         <input type="text" v-model="nameToAdd">
-        <button v-on:click="addName">Add name</button>
+        <button @click="addName">Add name</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -43,7 +43,8 @@
             },
             methods:{
                 addName(){
-                    this.names.push(this.nameToAdd)
+                    this.names.push(this.nameToAdd);
+                    this.nameToAdd = '';
                 }
             }
         }).mount("#root");

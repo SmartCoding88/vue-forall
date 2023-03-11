@@ -8,8 +8,15 @@
 </head>
 <body>
     <div id="root">
-        <input type="text" id="input" v-model="message">
-        <p><strong>Input Value is:</strong> {{message}}</p>
+        <!-- <ul>
+            <li v-for="(index,name) in names">{{index}}: {{name}}</li>
+        </ul> -->
+
+        <ol>
+            <li v-for="name in names" v-text="name"></li>
+        </ol>
+        <input type="text" id="nameToAdd">
+        <button id="btn">Add name</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -27,13 +34,20 @@
         //vue 3 version
         const { createApp } = Vue
 
-        createApp({
+        let app = createApp({
             data(){
                 return {
-                    message:"Try Vue through CDN"
+                    names: ['Joe', "Marry", 'Jane', "Jack"]
                 }
             }
-        }).mount("#root")
+        }).mount("#root");
+
+        //old way of programming events
+        document.querySelector("#btn").addEventListener('click',()=>{
+            let newName = document.querySelector("#nameToAdd");
+            app.names.push(newName.value);
+            newName.value = "";
+        })
     </script>
 </body>
 </html>

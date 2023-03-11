@@ -15,8 +15,8 @@
         <ol>
             <li v-for="name in names" v-text="name"></li>
         </ol>
-        <input type="text" id="nameToAdd">
-        <button id="btn">Add name</button>
+        <input type="text" v-model="nameToAdd">
+        <button v-on:click="addName">Add name</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -37,17 +37,23 @@
         let app = createApp({
             data(){
                 return {
-                    names: ['Joe', "Marry", 'Jane', "Jack"]
+                    names: ['Joe', "Marry", 'Jane', "Jack"],
+                    nameToAdd:''
+                }
+            },
+            methods:{
+                addName(){
+                    this.names.push(this.nameToAdd)
                 }
             }
         }).mount("#root");
 
-        //old way of programming events
+        /*old way of programming events
         document.querySelector("#btn").addEventListener('click',()=>{
             let newName = document.querySelector("#nameToAdd");
             app.names.push(newName.value);
             newName.value = "";
-        })
+        })*/
     </script>
 </body>
 </html>

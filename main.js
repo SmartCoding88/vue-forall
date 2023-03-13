@@ -33,4 +33,23 @@ app.component('task-list', {
     }
 });
 
+app.component('message', {
+    template: `
+    <article class="message" :class="type">
+        <div class="message-header">
+            <p>{{title}}</p>
+            <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+            {{description}}
+        </div>
+    </article>
+    `,
+    props:{
+        title:{type:String},
+        description:{type:String},
+        type:{type: String}
+    }
+})
+
 app.mount("#root");

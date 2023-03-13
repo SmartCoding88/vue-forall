@@ -5,23 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=div#root, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <style>
-        button{
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #fff;
-            border: 1px solid #000;
-        }
-        .is_loading{
-            background: black;
-            color: #fff;
+        body{
+            padding: 50px 0;
         }
     </style>
 </head>
 <body>
-    <div id="root">
-       <task-list></task-list>
+    <div id="root" class="container">
+       <message title="Go to the store" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></message>
+       <message type="is-primary" title="Shopping" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></message>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

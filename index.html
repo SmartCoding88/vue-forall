@@ -21,57 +21,11 @@
 </head>
 <body>
     <div id="root">
-        <h2>All tasks</h2>
-        <ul>
-            <template v-for="task in tasks" >
-                <li>{{task.description}}</li>
-            </template>           
-        </ul>
-
-        <h2>Completed tasks</h2>
-        <ul>
-            <template v-for="task in tasks" >
-                <li v-if="task.complete">{{task.description}}</li>
-            </template>           
-        </ul>
-        <h2>Incomplete Tasks</h2>
-        <ul>
-            <template v-for="task in incompleteTasks" >
-                <li>{{task.description}}</li>
-            </template>           
-        </ul>
+       <task>Go to the market</task>
+       <task>Set the table</task>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-       
-        const { createApp } = Vue
-
-        let app = createApp({
-            data(){
-                return {
-                    tasks: [
-                        { description: 'Go to the store', complete: true},
-                        { description: 'Finish screencast', complete: false},
-                        { description: 'Make donation', complete: false},
-                        { description: 'Clean the room', complete: true}
-                    ]
-                }
-            },
-
-            computed:{
-                incompleteTasks(){
-                    return this.tasks.filter(task => !task.complete);
-
-                }
-            },
-            
-            methods:{
-                
-            }
-        }).mount("#root");
-
-        
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

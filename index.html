@@ -21,9 +21,23 @@
 </head>
 <body>
     <div id="root">
+        <h2>All tasks</h2>
         <ul>
             <template v-for="task in tasks" >
-                <li v-if="task.finished">{{task.description}}</li>
+                <li>{{task.description}}</li>
+            </template>           
+        </ul>
+
+        <h2>Completed tasks</h2>
+        <ul>
+            <template v-for="task in tasks" >
+                <li v-if="task.complete">{{task.description}}</li>
+            </template>           
+        </ul>
+        <h2>Incomplete Tasks</h2>
+        <ul>
+            <template v-for="task in incompleteTasks" >
+                <li>{{task.description}}</li>
             </template>           
         </ul>
     </div>
@@ -37,16 +51,19 @@
             data(){
                 return {
                     tasks: [
-                        { description: 'Go to the store', finished: true},
-                        { description: 'Finish screencast', finished: false},
-                        { description: 'Make donation', finished: false},
-                        { description: 'Clean the room', finished: true}
+                        { description: 'Go to the store', complete: true},
+                        { description: 'Finish screencast', complete: false},
+                        { description: 'Make donation', complete: false},
+                        { description: 'Clean the room', complete: true}
                     ]
                 }
             },
 
             computed:{
-                
+                incompleteTasks(){
+                    return this.tasks.filter(task => !task.complete);
+
+                }
             },
             
             methods:{

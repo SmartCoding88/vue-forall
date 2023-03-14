@@ -20,10 +20,20 @@
 
 <body>
     <div id="root" class="container">
-        <button class="" data-target="modal-js-example" @click="showModal = true">
-            Launch modal
-        </button>
-        <modal v-if="showModal" @close="showModal= false"></modal>
+
+        <tabs>
+            <tab name="About Us" :selected="true">
+                <h3>Tab content about us.</h3>
+            </tab>
+            <tab name="About Our Culture">
+                <h3>Tab content our culture</h3>
+            </tab>
+            <tab name="About Our Vision">
+                <h3>Tab content our vision</h3>
+            </tab>
+        </tabs>
+
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

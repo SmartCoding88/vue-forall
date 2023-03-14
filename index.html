@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,26 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <style>
-        body{
+        body {
             padding: 50px 0;
+        }
+
+        .text-white {
+            color: #fff;
         }
     </style>
 </head>
+
 <body>
     <div id="root" class="container">
-       <message title="Go to the store" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></message>
-       <message type="is-primary" title="Shopping" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></message>
+        <button class="" data-target="modal-js-example" @click="showModal = true">
+            Launch modal
+        </button>
+        <modal v-if="showModal" @close="showModal= false"></modal>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>

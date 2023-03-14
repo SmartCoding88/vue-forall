@@ -3,7 +3,9 @@ const { createApp } = Vue
 
 let app = createApp({
     data() {
-
+        return {
+            showModal: false
+        }
     },
 
     computed: {
@@ -51,5 +53,17 @@ app.component('message', {
         type:{type: String}
     }
 })
+
+app.component('modal',{
+    template: `
+    <div id="modal-js-example" class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-content text-white">
+         <p>Hello there</p>
+        </div>
+        <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
+    </div>
+    `,   
+});
 
 app.mount("#root");
